@@ -1,3 +1,4 @@
+import { mountMobileCodeBar } from 'vj/components/mobile_codebar';
 import $ from 'jquery';
 import React from 'react';
 import ReactDOM from 'react-dom/client';
@@ -29,6 +30,10 @@ const page = new NamedPage(['problem_submit', 'contest_detail_problem_submit', '
       preferences.push(key);
     }
   }
+
+    // Mobile Optimization: Mount accessory codebar & disable autocorrect
+  $('[name="code"]').attr({ autocapitalize: 'none', autocorrect: 'off', spellcheck: 'false' });
+  mountMobileCodeBar('[name="submit_section"]');
 
   renderLanguageSelect(
     document.getElementById('codelang-selector'),
